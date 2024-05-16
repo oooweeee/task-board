@@ -4,16 +4,11 @@ let nextId = JSON.parse(localStorage.getItem("nextId"));
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
-    const timestamp = Date.now();
-    // THIS WILL GRAB THE CURRENT TIME STAMP
-const randomId = Math.floor(Math.random() * 100);
-// THIS WILL GENERATE A RANDOM NUMBER
-return `${timestamp}_${randomId}`;
+
 }
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-
 
 }
 
