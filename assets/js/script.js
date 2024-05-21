@@ -24,12 +24,13 @@ function generateTaskId() {
 
 }
 
-// generateTaskId is your keyword 
-
-// creat parameters for it now
-
 // Todo: create a function to create a task card
 function createTaskCard(task) {
+    let cardData = {
+        class: '',
+        id: task.id,
+        status: task.status,
+    }
 
 }
 
