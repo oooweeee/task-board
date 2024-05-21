@@ -48,8 +48,15 @@ card.css('z-index', 1);
 // useing toolBox functions create child elements for the card
 // be sure to store those bad puppies in a array for children 
 let childeren = [
-    generateSimpleTag()
-]
+    generateSimpleTag("h2", task.title),
+    generateSimpleTag('h4',`Due: ${new Date(task.dueDate).toLocaleDateString()}`),
+    generateElement("p",{id:'description' }).append(task.description),
+    generateElement ("button",{class: "btn btn-danger border border-dark" }).text('DELETE').on('click', handleDeletTask),
+];
+// attach the child elements in children to the card and return the card
+card.append(children);
+card.css('margin-bottom:', '1em');
+return card; 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
 
