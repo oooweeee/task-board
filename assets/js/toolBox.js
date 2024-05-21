@@ -13,4 +13,24 @@ function keyGenerator(date){
     });
     return key;
     }
-    
+    // wrapper using jquery to set focus to passed element id
+    function focusElementbyId(id) {
+        debugger;
+        $(`#${id}`).trigger('focus');
+    }
+    // local starge wrapper needs to return the parsed and stored data also enclosed in a try catch incase we fail rereaval if it fails lof the error and return null
+    function getItem(store) {
+try {
+    let val = localStorage.getItem(store);
+    return JSON.parse(val);
+} catch (e) {
+    console.log(`${logStrings.storeErr}` + e);
+    console.log(e);
+    return null;
+}
+    }
+    // local starge wrapper to format and store data
+
+    // create an element with tag and set its value to val no attrute assignments
+
+//  create an element with tag and sets its innerText to val no attribute assinment
