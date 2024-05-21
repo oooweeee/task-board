@@ -7,7 +7,7 @@ const tStatus ={
     todo: 'to-do', 
     prog:'in-progress',
     done:'done',
-}
+};
 //  make a button clickable 
 // create a modal to fill out for 3 categoies
 // make add task button clickable for submitting modal after filling it out 
@@ -20,6 +20,7 @@ const tStatus ={
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
+    return keyGenerator(new Date());
 
 }
 
