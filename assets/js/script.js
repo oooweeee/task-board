@@ -33,7 +33,23 @@ function createTaskCard(task) {
     }
 
 }
-
+// Add styling to 
+let card =generateElement("div",cardData);
+// with dayjs i can get the change in time from dueDate to present deltaTima will show it in days
+const now = dayjs(new Date);
+const dueDate = dayjs(task.dueDate);
+const deltaTime = dueDate.diff(now, 'day');
+// inline conditionsal if deltaTime > 3 set the background to bg sucess
+// else if deltaTime > 0 set background to bg-warning
+// else set background to bg-danger
+card.addClass(deltaTime> 3 ? "bg-success" : deltaTime < 3 && deltaTime > 0 ? "bg-warning" : "bg-danger");
+card.addClass("task-card")
+card.css('z-index', 1);
+// useing toolBox functions create child elements for the card
+// be sure to store those bad puppies in a array for children 
+let childeren = [
+    generateSimpleTag()
+]
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
 
