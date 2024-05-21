@@ -30,7 +30,10 @@ try {
 }
     }
     // local starge wrapper to format and store data
-
-    // create an element with tag and set its value to val no attrute assignments
+function setItem(store, val) {
+    val = typeof (val) === 'object' ? JSON.stringify(val) : val;
+    localStorage.setItem(store,val);
+}
+    // create an element with  tag and set its value to val no attrute assignments
 
 //  create an element with tag and sets its innerText to val no attribute assinment
