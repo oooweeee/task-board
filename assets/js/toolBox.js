@@ -29,11 +29,20 @@ try {
     return null;
 }
     }
-    // local starge wrapper to format and store data
+    // local starge wrapper to format and store data 🫠
 function setItem(store, val) {
     val = typeof (val) === 'object' ? JSON.stringify(val) : val;
     localStorage.setItem(store,val);
 }
     // create an element with  tag and set its value to val no attrute assignments
-
+function generateSimpleElement(tag, val) {
+    let element = $(`<${tag}>`);
+    element.val(val);
+    return element;
+}
 //  create an element with tag and sets its innerText to val no attribute assinment
+function generateSimpleTag(tag, val) {
+    let element = $(`<${tag}>`);
+    element.text(val);
+    return element;
+}
