@@ -124,19 +124,50 @@ done.droppable({
 
 
 // Todo: create a function to handle adding a new task
-function handleAddTask(event) {}
+function handleAddTask(event) {
 // prevent modal from dismisshing
+event.preventDefault();
 // object to store task data
+let task ={
 // title duedateand description get values from useerr inputs
+title: $("#task-title").val(),
+        dueDate: new Date(new Date($("#task-due-date").val()).getTime() + (24 * 60 *60* 1000)),
+        description: $("#task-decscription").val(),
 // generate id by calling generatTaskId
+id: generateTaskId(),
 // every new task will have its status set to to-do by default
+status: tStatus.todo,
+    }
+    if (task.title == '' || !task.title) {
+        return;
+    }
+    console.log(`new task: `);
+    console.log(task);
+    // use our toolBox function to store our task without thinknig about it
+    storeTask(task);
+    renderTaskList();
+    $('#taskModal').modal('hide');
+}
+function storeTask(task){
 // use tool box fucntion to store task
-// use toolboc function getitem to get taskwithout haveing to worry aboy parsing data 
+let tasks = getItem('tasks');
 // clear wrong tasek and make new array
-// store task with out having worring about parsing data
+if(!tasks || typeof (tasks) == !Array) {
+    tasks = [];
+}
+tasks.push(task);
+// use toolboc function getitem to get taskwithout haveing to worry aboy parsing data 
+setItem('tasks', tasks);
+}
 
 // Todo: create a function to handle deleting a task
-function handleDeleteTask(event) {}
+function handleDeleteTask(event) {
+    // this will traverse through the array and remove the task
+
+    // this will store our updated tasks
+
+    // this should remove the task card from the DOM
+}
 
 // Todo: create a function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {}
