@@ -1,5 +1,6 @@
 // strings we want to reuse for console logging 
 const logStrings = {storeErr: "storage Error: " }
+
 // this will remove the chars from strings for key generation 
 const badKeyChars = ['-', ':', '.', '\\', '[', ']', '{', '}'];
 // this will generate a key based on the js Date obj passed
@@ -8,7 +9,7 @@ function keyGenerator(date){
     let key = date.toISOString();
     // use a for loop with an inline function declaration to remove unwanted characters from the key. this is a foreach displayed as a for loop 
     //for (let i = 0; i < badkeyChars.length; i++) { key = key.replaceAll(badchars[i], ''); }
-    badKeyChars.forEach((char) =>{
+    badKeyChars.forEach((char) => {
          key = key.replaceAll(char, '');
     });
     return key;
@@ -32,7 +33,12 @@ try {
     // local starge wrapper to format and store data 🫠
 function setItem(store, val) {
     val = typeof (val) === 'object' ? JSON.stringify(val) : val;
-    localStorage.setItem(store,val);
+    localStorage.setItem(store, val);
+}
+//this will create an element with at tagf and set it attribute to data
+function generateElement(tag, data) {
+    let element = $(`<${tag}>`, data);
+    return element;
 }
     // create an element with  tag and set its value to val no attrute assignments
 function generateSimpleElement(tag, val) {
